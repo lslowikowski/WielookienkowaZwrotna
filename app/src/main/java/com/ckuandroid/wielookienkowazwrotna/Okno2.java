@@ -16,7 +16,19 @@ public class Okno2 extends AppCompatActivity {
         setContentView(R.layout.activity_okno2);
         Intent intentOkno2 = getIntent();
         String komunikatStr = intentOkno2.getStringExtra("wiadomoscZGlownego");
+        int wiek = intentOkno2.getIntExtra("wiek", 0);
+        boolean czyKobieta = intentOkno2.getBooleanExtra("Czy kobieta", true);
         TextView komunikat = (TextView) findViewById(R.id.komunikat);
+        if(czyKobieta && wiek<20) {
+            komunikatStr = komunikatStr +". Witamy Panienkę";
+        }else if(czyKobieta && wiek>20){
+            komunikatStr = komunikatStr +". Witamy Panią";
+        }else if(!czyKobieta && wiek<20) {
+            komunikatStr = komunikatStr +". Witamy Kawalera";
+        }else if(!czyKobieta && wiek>20){
+            komunikatStr = komunikatStr +". Witamy Pana";
+        }
+        komunikat.setText(komunikatStr);
         komunikat.setText(komunikatStr);
     }
 
@@ -25,6 +37,7 @@ public class Okno2 extends AppCompatActivity {
         String doZwrotuStr = doZwrotu.getText().toString();
         Intent intentGlowne = new Intent();
         intentGlowne.putExtra("wiadomoscZ2", doZwrotuStr);
+        intentGlowne.putExtra("zapytanie", "A ty kim jesteś?");
         setResult(2, intentGlowne);
         finish();
     }

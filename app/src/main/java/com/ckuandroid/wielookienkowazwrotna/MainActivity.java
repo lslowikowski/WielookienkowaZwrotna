@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         EditText doWysylki = (EditText) findViewById(R.id.do_wysylki);
         String doWysylkiStr = doWysylki.getText().toString();
         intentOkno2.putExtra("wiadomoscZGlownego", doWysylkiStr);
+        intentOkno2.putExtra("wiek", 18);
+        intentOkno2.putExtra("Czy kobieta", false);
         //startActivity(intentOkno2);
         startActivityForResult(intentOkno2, 2);
     }
@@ -31,8 +33,14 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 2){
             String komunikatZwrotStr = data.getStringExtra("wiadomoscZ2");
+            String zapytanie = data.getStringExtra("zapytanie");
             TextView komunikatZwrot = (TextView) findViewById(R.id.komunikat_zwrot);
-            komunikatZwrot.setText(komunikatZwrotStr);
+            komunikatZwrot.setText(komunikatZwrotStr + zapytanie);
         }
+    }
+
+    public void wyslij3(View view) {
+        Intent intentOkno3 = new Intent(this, Okno3.class);
+        startActivity(intentOkno3);
     }
 }

@@ -22,8 +22,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Wyślij"
+        android:text="Wyślij 2"
         android:onClick="wyslij" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Wyślij 3"
+        android:onClick="wyslij3" />
     <TextView
         android:id="@+id/komunikat_zwrot"
         android:layout_width="match_parent"

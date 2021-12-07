@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WielookienkowaZwrotna">
         <activity
+            android:name=".Okno3"
+            android:exported="false" />
+        <activity
             android:name=".Okno2"
             android:exported="false" />
         <activity
